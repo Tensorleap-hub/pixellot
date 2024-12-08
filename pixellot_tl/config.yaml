@@ -1,0 +1,14 @@
+bucket_name: pixellot-assets-bucket-fgkhjab
+data_dir: american_football
+
+# train data
+train_dir: train_data
+train_files:
+  - inputs.npy
+  - focus.npy
+  - states.npy
+  - focus_mask.npy
+  - states_mask.npy
+  - sample_clip_ids.npy
+  - clip_name2id_map.json
+
