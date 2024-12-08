@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "pixellot"
+version = "0.1.0"
+description = ""
+authors = ["ranhomri <ran.homri@tensorleap.ai>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8 <3.12"
+code-loader = "^1.0.59"
+tensorflow-io-gcs-filesystem = "0.34.0"
+tensorflow-macos = "2.11.0"
+pyyaml = "^6.0.2"
+onnx = "1.11"
+onnxruntime = "1.11"
+boto3 = "^1.35.76"
+
+
+[tool.poetry.group.dev.dependencies]
+tqdm = "^4.67.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
