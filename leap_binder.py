@@ -11,12 +11,10 @@ from code_loader.inner_leap_binder.leapbinder_decorators import (
     tensorleap_input_encoder,
     tensorleap_gt_encoder,
     tensorleap_metadata,
-    tensorleap_custom_metric,
-    tensorleap_custom_visualizer,
 )
 
 from pixellot_tl.utils.data_utils import load_dataset
-from pixellot_tl.metrics import get_state_metrics, get_focus_metrics
+from pixellot_tl.metrics import get_state_metrics, get_focus_metrics, dummy_loss
 
 
 @tensorleap_preprocess()
@@ -100,7 +98,6 @@ if __name__ == "__main__":
 
 # TODO: Implement the following functions
 """
-- focus metrics
-- state metrics
+- support focal loss
 - visualization ?
 """

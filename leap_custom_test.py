@@ -1,4 +1,4 @@
-import onnxruntime as ort
+import tensorflow as tf
 import numpy as np
 
 from leap_binder import (
@@ -15,9 +15,9 @@ from leap_binder import (
 
 
 def check_integration():
-    # load onnx model (TODO: load h5 model)
-    onnx_path = "models/model.onnx"
-    ort_session = ort.InferenceSession(onnx_path)
+    # load h5 model
+    model_path = "models/model.h5"
+    model = tf.keras.models.load_model(model_path)
 
     # load data
     responses = preprocess_func()
@@ -36,10 +36,14 @@ def check_integration():
     batched_state_mask = np.expand_dims(state_mask, axis=0)
     batched_focus_mask = np.expand_dims(focus_mask, axis=0)
     # run inference
-    state_probs, pr_focus = ort_session.run(None, {"input_name": batched_inputs})
+    state_probs, pr_focus = model(batched_inputs)
     # compute metrics
-    state_metrics = get_state_metrics(batched_gt_state, state_probs, state_mask)
-    focus_metrics = get_focus_metrics(batched_gt_focus, pr_focus, focus_mask)
+    state_metrics = get_state_metrics(
+        batched_gt_state, state_probs.numpy(), batched_state_mask
+    )
+    focus_metrics = get_focus_metrics(
+        batched_gt_focus, pr_focus.numpy(), batched_focus_mask
+    )
 
     print("Custom Test Done!")
 
