@@ -1,12 +1,9 @@
 codeIntegrationId: 675016e95d1325c992ca955b
 projectId: 675016e35d1325c992ca9557
-secretId: 
-branch: 
-entryFile: 'leap_binder.py'
+secretId: 675e8fbfabe0b658520a4382
+entryFile: leap_binder.py
 include:
-  - leap_binder.py
-  - pixellot_tl/utils/*.py
-  - pixellot_tl/*.py
-  - pixellot_tl/config.yaml
-  
-
+    - leap_binder.py
+    - pixellot_tl/utils/*.py
+    - pixellot_tl/*.py
+    - pixellot_tl/config.yaml
